@@ -1,36 +1,52 @@
-# API Flask - Sistema de Biblioteca
+# Meu Livro Usado
 
-Este projeto implementa uma API REST completa usando Flask e SQLite3, baseada no esquema de banco de dados Oracle fornecido. A API gerencia estados, cidades, bairros, usuários, livros, autores e categorias.
+## Design do FrontEnd
+- Tela de Início
+![Primeira Imagem](assets/frontend1.png)
+- Navegação pelo app
+![Segunda Imagem](assets/frontend2.png)
 
-## Estrutura do Projeto Backend
+## Design do BackEnd
+- Modelo Relacional Conceitual
+![Primeira Imagem](assets/Conceitual.png)
+- Modelo Relacional Conceitual
+![Segunda Imagem](assets/Logico.png)
+
+## Estrutura do Projeto
 
 ```
 projeto/
 │
 ├── app.py              # Aplicação principal Flask
 ├── requirements.txt    # Dependências Python
-├── README.md           # Este arquivo
+├── schema.sql          # Script de criação do banco de dados
 ├── config
 │   └── config.py       # Configurações do projeto
-├── db
+├── assets
+│   ├── frontend1.png   # Primeira imagem do UI e UX do projeto
+│   ├── frontend2.png   # Segunda imagem do UI e UX do projeto
 │   ├── Conceitual.png  # Imagem do Modelo Relacional Conceitual do Projeto
-│   ├── Logico.md       # Imagem do Modelo Relacional Lógico do Projeto
-│   └── schema.sql      # Script de criação do banco de dados
+│   └── Logico.png      # Imagem do Modelo Relacional Lógico do Projeto
+├── templates
 └── test
     └── test_api.py     # Script de teste da API
 ```
 
 ## Instalação e Configuração
 
-### 1. Criar ambiente virtual (recomendado)
+### 1. Criar/Ativar ambiente virtual (caso necessário)
 
 ```bash
+# Criar ambiente python tipo venv
 python -m venv venv
 
-# No Windows
+# Ativação no Windows
+    # Ativa scripts locais
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+    # Ativa ambiente
 venv\Scripts\activate
 
-# No Linux/Mac
+# Ativação no Linux/Mac
 source venv/bin/activate
 ```
 
@@ -171,8 +187,12 @@ A API será executada em `http://localhost:5000`
 
 ## Testando a API
 
-### Usando o script de teste
+### Usando script de teste
 ```bash
+# Abrir pasta de teste
+cd .\test\
+
+# Executar teste do backend
 python test_api.py
 ```
 
@@ -195,34 +215,6 @@ curl -X POST http://localhost:5000/estados \
 curl -X GET http://localhost:5000/estados/1
 ```
 
-## Características Técnicas
-
-### Banco de Dados
-- **SQLite3** para persistência local
-- **Auto-increment** para IDs primários
-- **Foreign Keys** habilitadas
-- **Índices** para melhor performance
-- **Check constraints** para validação de dados
-
-### API
-- **RESTful** design
-- **JSON** para entrada e saída
-- **Error handling** com códigos HTTP apropriados
-- **CORS** habilitado para desenvolvimento
-- **Base64** encoding para imagens (BLOB)
-
-### Validações
-- Campos obrigatórios validados
-- Relacionamentos de chave estrangeira respeitados
-- Imagens em formato base64
-- Códigos de status HTTP apropriados
-
-### Recursos Especiais
-- **Relacionamentos N:N** (Livro-Autor, Livro-Categoria)
-- **JOINs** para busca com informações relacionadas
-- **Transações** para operações complexas
-- **Cleanup** automático de relacionamentos
-
 ## Dados de Exemplo
 
 O banco é inicializado com alguns dados de exemplo:
@@ -232,43 +224,3 @@ O banco é inicializado com alguns dados de exemplo:
 - Usuários: joao123, maria456, pedro789
 - Autores: Machado de Assis, Clarice Lispector, José de Alencar
 - Categorias: Literatura Brasileira, Romance, Ficção, Autoajuda
-
-## Desenvolvimento
-
-### Estrutura do Código
-- **Endpoints** organizados por entidade
-- **Helper functions** para conversão de dados
-- **Error handlers** centralizados
-- **Database connection** por request
-
-### Extensões Possíveis
-- Autenticação JWT
-- Paginação para listagens
-- Filtros e busca
-- Upload de arquivos
-- Cache com Redis
-- Logs estruturados
-- Testes unitários
-- Documentação com Swagger
-
-## Troubleshooting
-
-### Erro de conexão com banco
-- Verifique se o arquivo `schema.sql` existe
-- Execute manualmente a criação do banco
-
-### Erro de foreign key
-- Certifique-se que os IDs referenciados existem
-- Verifique a ordem de criação dos registros
-
-### Erro de imagem
-- Imagens devem estar em formato base64
-- Use o módulo `base64` do Python para codificar
-
-### Porta em uso
-- Mude a porta no `app.run()` se necessário
-- Use `netstat` para verificar portas ocupadas
-
-## Licença
-
-Este projeto é livre para uso educacional e desenvolvimento.
