@@ -2,17 +2,22 @@
 
 Este projeto implementa uma API REST completa usando Flask e SQLite3, baseada no esquema de banco de dados Oracle fornecido. A API gerencia estados, cidades, bairros, usuários, livros, autores e categorias.
 
-## Estrutura do Projeto
+## Estrutura do Projeto Backend
 
 ```
 projeto/
 │
 ├── app.py              # Aplicação principal Flask
-├── schema.sql          # Script de criação do banco de dados
 ├── requirements.txt    # Dependências Python
-├── test_api.py         # Script de teste da API
 ├── README.md           # Este arquivo
-└── biblioteca.db       # Banco SQLite (criado automaticamente)
+├── config
+│   └── config.py       # Configurações do projeto
+├── db
+│   ├── Conceitual.png  # Imagem do Modelo Relacional Conceitual do Projeto
+│   ├── Logico.md       # Imagem do Modelo Relacional Lógico do Projeto
+│   └── schema.sql      # Script de criação do banco de dados
+└── test
+    └── test_api.py     # Script de teste da API
 ```
 
 ## Instalação e Configuração

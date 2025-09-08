@@ -208,4 +208,5 @@ marimo/_lsp/
 __marimo__/
 
 #banco de dados
-.db
+*.db
+biblioteca.db
