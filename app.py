@@ -1,12 +1,11 @@
-from flask import Flask, request, jsonify, g, render_template
+from flask import Flask, request, jsonify, g,  send_from_directory
 import sqlite3
 import os
 import base64
-from werkzeug.exceptions import BadRequest
-import requests
+from flask_cors import CORS
 
-
-app = Flask(__name__)
+app = Flask(__name__, static_folder="dist", static_url_path="")
+CORS(app)
 app.config['DATABASE'] = 'biblioteca.db'
 
 
@@ -41,29 +40,6 @@ def init_db():
 ## converter resultado para dict
 def row_to_dict(row):
     return {key: row[key] for key in row.keys()}
-
-## retornar infos do CEP
-class CEP:
-	@staticmethod
-	def getDadosCEP(cep):
-		url_api = (f'https://brasilapi.com.br/api/cep/v1/{cep}')
-		try:
-			req = requests.get(url_api, headers={"User-Agent": "PythonApp/1.0"}, timeout=5)
-			req.raise_for_status()
-			dados_json = req.json()
-			if "erro" not in dados_json:
-				return {"CEP": {dados_json["cep"]},
-						"Bairro": {dados_json["neighborhood"]},
-						"Cidade": {dados_json["city"]},
-						"Estado": {dados_json["state"]}}
-			else:
-				return {"erro": "cep"}
-		except requests.exceptions.RequestException as e:
-			return {"CEP": cep,
-		   			"erro": "CEP inválido"}
-	
-	def __new__(cls):
-		raise TypeError("Não é possível instanciar esta classe")
 
 # ==================== ESTADO ENDPOINTS ====================
 
@@ -705,15 +681,10 @@ def bad_request(error):
 def internal_error(error):
     return jsonify({'error': 'Erro interno do servidor'}), 500
 
-## template da api
-@app.route("/api")
-def api_page():
-    return render_template("index.html")
-
 ## template do app
 @app.route("/")
-def app_page():
-    return render_template("app.html")
+def api_page():
+    return send_from_directory("dist", "index.html")
 
 if __name__ == '__main__':
     if os.path.exists(app.config['DATABASE']):

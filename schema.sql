@@ -133,6 +133,7 @@ INSERT INTO AUTOR (NM_AUTOR) VALUES ('Machado de Assis');
 INSERT INTO AUTOR (NM_AUTOR) VALUES ('Clarice Lispector');
 INSERT INTO AUTOR (NM_AUTOR) VALUES ('José de Alencar');
 INSERT INTO AUTOR (NM_AUTOR) VALUES ('Paulo Coelho');
+INSERT INTO AUTOR (NM_AUTOR) VALUES ('Rick Riodan');
 
 -- Categorias (usando placeholder para imagens)
 INSERT INTO CATEGORIA (NM_CATEGORIA, IMG_CATEGORIA) VALUES 
@@ -143,3 +144,9 @@ INSERT INTO CATEGORIA (NM_CATEGORIA, IMG_CATEGORIA) VALUES
     ('Ficção', X'89504E470D0A1A0A0000000D49484452');
 INSERT INTO CATEGORIA (NM_CATEGORIA, IMG_CATEGORIA) VALUES 
     ('Autoajuda', X'89504E470D0A1A0A0000000D49484452');
+
+-- Livros
+INSERT INTO LIVRO (nm_livro, preco, pagamento_eletronico, pagamento_dinheiro, entrega_presencial, entrega_delivery, img_livro, cep, login_vendedor, LOGIN_COMPRADOR) VALUES 
+    ('Percy Jackson', 50.60, 'S', 'S', 'S', 'N', X'89504E470D0A1A0A0000000D49484452', 04038001, "maria456", "pedro789");
+INSERT INTO LIVRO (nm_livro, preco, pagamento_eletronico, pagamento_dinheiro, entrega_presencial, entrega_delivery, img_livro, cep, login_vendedor, LOGIN_COMPRADOR) VALUES 
+    ('Quincas Borba', 20.13, 'S', 'N', 'S', 'N', X'89504E470D0A1A0A0000000D49484452', 04038001, "pedro789", "maria456");

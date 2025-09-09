@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Script de teste para a API Flask
-Execute este script com o servidor Flask rodando para testar todos os endpoints
-"""
-
 import requests
 import json
 import base64
