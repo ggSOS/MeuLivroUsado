@@ -27,7 +27,7 @@ projeto/
 │   ├── frontend2.png   # Segunda imagem do UI e UX do projeto
 │   ├── Conceitual.png  # Imagem do Modelo Relacional Conceitual do Projeto
 │   └── Logico.png      # Imagem do Modelo Relacional Lógico do Projeto
-├── templates
+├── dist                # Yarn Build do projeto FrontEnd
 └── test
     └── test_api.py     # Script de teste da API
 ```
