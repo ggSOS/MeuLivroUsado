@@ -2,15 +2,15 @@
 
 ## Design do FrontEnd
 - Tela de Início
-![Primeira Imagem](assets/frontend1.png)
+    - ![Primeira Imagem](assets/frontend1.png)
 - Navegação pelo app
-![Segunda Imagem](assets/frontend2.png)
+    - ![Segunda Imagem](assets/frontend2.png)
 
 ## Design do BackEnd
 - Modelo Relacional Conceitual
-![Primeira Imagem](assets/Conceitual.png)
+    - ![Primeira Imagem](assets/Conceitual.png)
 - Modelo Relacional Conceitual
-![Segunda Imagem](assets/Logico.png)
+    - ![Segunda Imagem](assets/Logico.png)
 
 ## Estrutura do Projeto
 
